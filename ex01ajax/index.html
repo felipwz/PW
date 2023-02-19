@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ajax</title>
+</head>
+
+
+<style>
+      body{
+            text-align: center;
+            background: #e7d7d7;
+            color: rgb(0, 0, 0);
+            font-family: cursive;
+        }
+
+        input[type='text']{
+            padding: 15px;
+            border: 0;
+            font-size: 15px;
+            border-radius: 8px;
+        }
+
+        input[type='button']{
+            border: 2px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          
+          input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          
+          input[type=submit]:hover {
+            background-color: #45a049;
+          }
+          
+          div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+          }
+          
+         
+          
+</style>
+
+<body>
+     
+        
+        
+        <h3>:)</h3>
+        
+        <div>
+          <form action="/action_page.php">
+            <label for="fname">CEP:</label>
+            <input type="text" id="cep" placeholder="Digite seu CEP">
+        
+            <label for="lname">Endereço:</label>
+            <input type="text" id="end" placeholder="Digite seu endereço">
+
+            <label for="lname">Complemento:</label>
+            <input type="text" id="compl" placeholder="Digite o complemento">
+
+            <label for="lname">Número:</label>
+            <input type="text" id="number" placeholder="Digite o número">
+
+            <label for="lname">Bairro:</label>
+            <input type="text" id="bairro" placeholder="Digite o bairro">
+
+            <label for="lname">Estado/UF:</label>
+            <input type="text" id="uf" placeholder="Digite seu estado">
+        
+          
+            <input type="submit" value="Submit" id="carregar" onclick="pesquisaCEP()">
+
+        </form>
+        </div>
+
+
+
+
+    <script>
+        
+        function pesquisaCEP() {
+
+            // Create an XMLHttpRequest object
+            const xhttp = new XMLHttpRequest();
+
+            // Define a callback function
+            xhttp.onload = function () {
+                // Here you can use the Data
+
+                var x = document.getElementById("cep")
+
+                dados = JSON.parse(this.responseText)
+                console.log(dados)
+                document.getElementById("logradouro").value = dados.logradouro
+            }
+
+            // Send a request
+            xhttp.open("GET", "https://viacep.com.br/ws/" + cep + "/json/");
+            xhttp.send();
+
+        }
+    
+    </script>
+
+</body>
+</html>
