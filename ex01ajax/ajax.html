@@ -4,83 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <link rel="stylesheet" href="style.css">
+
   <title>Ajax</title>
 </head>
 
-
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
-
-
-
-  body {
-    text-align: center;
-    background: #e7d7d7;
-    color: rgb(0, 0, 0);
-    font-family: 'Golos Text', sans-serif;
-
-  
-  }
-
-  input[type='text'] {
-    padding: 15px;
-    border: 0;
-    font-size: 15px;
-    border-radius: 8px;
-  }
-
-  input[type='button'] {
-    border: 2px;
-    padding: 20px;
-    border-radius: 5px;
-  }
-
-  input[type=text],
-  select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-
-  div {
-    background: rgba(183, 137, 253, 0);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 20px;
-  }
-</style>
-
 <body>
 
+  <h1 data-aos="fade-down" data-aos-duration="3000">Procure informações sobre seu CEP</h1>
 
-
-  <h3>Procure informações sobre seu CEP</h3>
-
-  <div>
+  <div id="conteudo" data-aos="fade-up" data-aos-duration="3000">
     <form action="">
       <label for="fname">CEP:</label>
       <input type="text" id="cep" placeholder="Digite seu CEP">
@@ -108,8 +43,8 @@
 
     </form>
   </div>
-
-
+  
+  <footer>Site criado por <a href="https://github.com/felipwz" target="_blank">Felipwz</a></footer>
 
 
   <script>
@@ -140,6 +75,10 @@
 
     }
   </script>
+
+<script>
+  AOS.init();
+</script>
 
 </body>
 
