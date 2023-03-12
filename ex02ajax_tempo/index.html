@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <title>Ajax</title>
+</head>
+
+<body>
+
+  <h1 data-aos="fade-down" data-aos-duration="3000">Pesquise informações sobre clima de sua cidade</h1>
+
+  <div id="container" data-aos="fade-up" data-aos-duration="3000">
+    <form>
+      <label for="fcidade">Cidade:</label>
+      <input type="text" id="cidade"
+      name="cidade" placeholder="Digite o nome da cidade">
+
+      <button type="submit" id="submit">Consultar</button>
+    </form>
+
+    <div id="weather-info"></div>
+  </div>
+
+  <footer>Site criado por <a href="https://github.com/felipwz" target="_blank">Felipwz</a></footer>
+
+
+  <script src="script.js"></script>
+
+
+
+</body>
+
+</html>
