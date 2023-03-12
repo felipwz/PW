@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Ajax</title>
+</head>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+
+
+
+  body {
+    text-align: center;
+    background: #e7d7d7;
+    color: rgb(0, 0, 0);
+    font-family: 'Golos Text', sans-serif;
+
+  
+  }
+
+  input[type='text'] {
+    padding: 15px;
+    border: 0;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  input[type='button'] {
+    border: 2px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  input[type=text],
+  select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  div {
+    background: rgba(183, 137, 253, 0);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+  }
+</style>
+
+<body>
+
+
+
+  <h3>Procure informações sobre seu CEP</h3>
+
+  <div>
+    <form action="">
+      <label for="fname">CEP:</label>
+      <input type="text" id="cep" placeholder="Digite seu CEP">
+
+      <label for="fname">Cidade:</label>
+      <input type="text" id="cidade" placeholder="Digite sua cidade">
+
+      <label for="lname">Endereço:</label>
+      <input type="text" id="end" placeholder="Digite seu endereço">
+
+      <label for="lname">Complemento:</label>
+      <input type="text" id="compl" placeholder="Digite o complemento">
+
+      <label for="lname">Número:</label>
+      <input type="text" id="number" placeholder="Digite o número">
+
+      <label for="lname">Bairro:</label>
+      <input type="text" id="bairro" placeholder="Digite o bairro">
+
+      <label for="lname">Estado/UF:</label>
+      <input type="text" id="uf" placeholder="Digite seu estado">
+
+
+      <input type="submit" value="Submit" id="carregar" onclick="pesquisaCEP()">
+
+    </form>
+  </div>
+
+
+
+
+  <script>
+    function pesquisaCEP() {
+
+      event.preventDefault()
+
+      var x = document.getElementById("cep").value
+
+      // Create an XMLHttpRequest object
+      const xhttp = new XMLHttpRequest();
+
+      // Define a callback function
+      xhttp.onload = function () {
+        // Here you can use the Data
+
+        dados = JSON.parse(this.responseText)
+        console.log(dados)
+        document.getElementById("cidade").value = dados.localidade
+        document.getElementById("end").value = dados.logradouro
+        document.getElementById("bairro").value = dados.bairro
+        document.getElementById("uf").value = dados.uf
+      }
+
+      // Send a request
+      xhttp.open("GET", "https://viacep.com.br/ws/" + x + "/json/");
+      xhttp.send();
+
+    }
+  </script>
+
+</body>
+
+</html>
